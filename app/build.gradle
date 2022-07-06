@@ -13,11 +13,25 @@ android {
         versionName '4.0.0'
 
         testApplicationId "io.appium.android.apis.test"
-        testInstrumentationRunner ".app.LocalSampleInstrumentation"
+//        testInstrumentationRunner ".app.LocalSampleInstrumentation"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     dependencies {
         implementation 'androidx.appcompat:appcompat:1.4.1'
+        // Testing-only dependencies
+        androidTestImplementation 'androidx.test:core:' + rootProject.coreVersion
+        androidTestImplementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion
+        androidTestImplementation 'androidx.test:runner:' + rootProject.runnerVersion
+        androidTestImplementation 'androidx.test.espresso:espresso-core:' + rootProject.espressoVersion
+
+        testImplementation 'androidx.test:core:' + rootProject.coreVersion;
+        testImplementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion
+        testImplementation 'junit:junit:4.12'
+        testImplementation 'org.robolectric:robolectric:' + rootProject.robolectricVersion
+        testImplementation 'androidx.test.espresso:espresso-core:' + rootProject.espressoVersion
+        testImplementation 'androidx.test.espresso:espresso-intents:' + rootProject.espressoVersion
+        testImplementation 'androidx.test.ext:truth:' + rootProject.extTruthVersion
     }
 
     buildTypes {
